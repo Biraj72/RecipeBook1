@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { Link,useParams } from 'react-router-dom'
 import { useState,useEffect } from 'react'
-import { DiJavascript1 } from 'react-icons/di'
 
 function Cuisine() {
 
@@ -57,6 +56,6 @@ h3{
   text-align: center;
   padding: 1rem;
 }
-`
+`;
 
 export default Cuisine
