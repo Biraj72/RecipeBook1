@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import {Splide,SplideSlide} from '@splidejs/react-splide'
 import '@splidejs/react-splide/css';
+import { Link } from 'react-router-dom';
 
 function EasyToCook() {
   const apiKey= process.env.REACT_APP_API_KEY;
 
 
-const [Easy, setEasy] = useState([]);
+const [easy, setEasy] = useState([]);
 
       useEffect(()=> {
         console.log(apiKey);
@@ -17,9 +18,9 @@ const [Easy, setEasy] = useState([]);
 
       const getEasy = async () => {
 
-        const check= localStorage.getItem('Easy');
+        const check= localStorage.getItem('easy');
       
-        if(check){
+        if(check !== null){
           setEasy(JSON.parse(check));
         }else{
           const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=8`);
@@ -47,13 +48,15 @@ const [Easy, setEasy] = useState([]);
                   gap: '5rem',
                 }}> 
 
-              {Easy.map((recipe)=>{
+              {easy.map((recipe)=>{
                 return(
                   <SplideSlide key={recipe.id}>
                   <Card>
+                    <Link to={"/recipe/" + recipe.id}>
                   <p>{recipe.title}</p>
                   <img src={recipe.image} alt={recipe.title}></img>
                   <Gradient/>
+                  </Link>
                 </Card>
                 </SplideSlide>
                 );
