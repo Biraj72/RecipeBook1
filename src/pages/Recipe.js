@@ -32,8 +32,8 @@ function Recipe() {
             <Button className={activeTab === 'ingredients' ? 'active' : ''} onClick={()=> setActiveTab("ingredients")}>Ingredients</Button>
         {activeTab === 'instructions' && (
              <div>
-             <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
-             <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
+             <h4 dangerouslySetInnerHTML={{__html: details.summary}}></h4>
+             <h4 dangerouslySetInnerHTML={{__html: details.instructions}}></h4>
          </div>
         )};
 
@@ -70,6 +70,9 @@ li{
 }
 ul{
     margin-top:0.5rem;
+}
+h4{
+    font-size: 1rem;
 }
 `;
 
