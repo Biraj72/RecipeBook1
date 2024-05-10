@@ -1,20 +1,25 @@
 import './App.css';
 import Pages from './pages/Pages';
 import Category from './components/Category';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,Routes, Route } from 'react-router-dom';
 import Search from './components/Search';
 import styled from 'styled-components';
-import { GiKnifeFork } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import About from './pages/About';
+import Add from './pages/Add';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Nav>
-        <GiKnifeFork/>
-        <Logo to={"/"}>RecipeBook</Logo>
-      </Nav>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/add" element={<Add />} />
+      </Routes>
       <Search/>
         <Category/>
         <Pages/>
@@ -22,6 +27,7 @@ function App() {
     </div>
   );
 }
+
 const Logo = styled(Link)`
 text-decoration:none;
 font-size:1.5rem;
