@@ -9,10 +9,9 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Add from './pages/Add';
+import Footer from './components/Footer';
 
 function App() {
-
-  
 
   return (
     <div className="App">
@@ -29,6 +28,7 @@ function App() {
       <Route path="*" element={<Pages />} />
       </Routes>
      </BrowserRouter>
+     <Footer/>
     </div>
   );
 }
@@ -45,6 +45,7 @@ padding: 4rem 0rem;
 display: flex;
 justify-content:flex-start;
 align-items: center;
+
 svg{
   font-size: 2rem;;
 }

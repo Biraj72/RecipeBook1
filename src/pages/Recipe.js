@@ -1,91 +1,90 @@
-import React from 'react'
-import { useEffect,useState } from 'react'
-import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
-
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 
 function Recipe() {
-    const apiKey = process.env.REACT_APP_API_KEY;
-    let params = useParams();
-    const [details, setDetails] = useState({});
-    const [activeTab, setActiveTab] = useState('instructions');
+  const apiKey = process.env.REACT_APP_API_KEY;
+  let params = useParams();
+  const [details, setDetails] = useState({});
+  const [activeTab, setActiveTab] = useState('instructions');
 
-    const fetchDetails = async()=>{
-        const data= await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${apiKey}`);
-        const detailData = await data.json();
-        setDetails(detailData);
+  const fetchDetails = async () => {
+    const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${apiKey}`);
+    const detailData = await data.json();
+    setDetails(detailData);
+  };
 
-    };
+  useEffect(() => {
+    fetchDetails();
+  }, [params.name]);
 
-    useEffect(()=>{
-        fetchDetails();
-
-    },[params.name]);
   return (
-    <DetailWeapper>
-        <div>
-            <h2>{details.title}</h2>
-            <img src={details.image} alt=""/>
-        </div>
-        <Info>
-            <Button className={activeTab === 'instructions' ? 'active' : ''} onClick={()=> setActiveTab("instructions")}>Instructions </Button>
-            <Button className={activeTab === 'ingredients' ? 'active' : ''} onClick={()=> setActiveTab("ingredients")}>Ingredients</Button>
+    <DetailWrapper>
+      <div>
+        <h2>{details.title}</h2>
+        <img src={details.image} alt="" />
+      </div>
+      <Info>
+        <Button className={activeTab === 'instructions' ? 'active' : ''} onClick={() => setActiveTab("instructions")}>Instructions</Button>
+        <Button className={activeTab === 'ingredients' ? 'active' : ''} onClick={() => setActiveTab("ingredients")}>Ingredients</Button>
         {activeTab === 'instructions' && (
-             <div>
-             <h4 dangerouslySetInnerHTML={{__html: details.summary}}></h4>
-             <h4 dangerouslySetInnerHTML={{__html: details.instructions}}></h4>
-         </div>
-        )};
+          <div>
+            <h4 dangerouslySetInnerHTML={{ __html: details.summary }}></h4>
+            <h4 dangerouslySetInnerHTML={{ __html: details.instructions }}></h4>
+          </div>
+        )}
 
-       {activeTab ==='ingredients' && (
-       <ul>
-            {details.extendedIngredients.map((ingredient)=>(
-                <li key={ingredient.id}>{ingredient.original}</li>
+        {activeTab === 'ingredients' && (
+          <ul>
+            {details.extendedIngredients && details.extendedIngredients.map((ingredient) => (
+              <li key={ingredient.id}>{ingredient.original}</li>
             ))}
-        </ul>
-     )};
-        
-        </Info>
-        </DetailWeapper>
+          </ul>
+        )}
+      </Info>
+    </DetailWrapper>
   );
 }
 
-const DetailWeapper= styled.div`
-margin-top:10rem;
-margin-bottom: 5rem;
-display:flex;
+const DetailWrapper = styled.div`
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  display: flex;
 
-.active{
-    background: linear-gradient(35deg,#494949,#313131);
+  .active {
+    background: linear-gradient(35deg, #494949, #313131);
     color: white;
-}
+  }
 
-h2{
+  h2 {
     margin-bottom: 2rem;
+  }
 
-}
-li{
+  li {
     font-size: 1rem;
     line-height: 2rem;
-}
-ul{
-    margin-top:0.5rem;
-}
-h4{
+  }
+
+  ul {
+    margin-top: 0.5rem;
+  }
+
+  h4 {
     font-size: 1rem;
-}
+  }
 `;
 
-const Button= styled.button`
-padding: 1rem 2rem;
-color:#313131;
-background:white;
-border: 2px solid black;
-margin-right:2rem;
-font-weight:600;`
+const Button = styled.button`
+  padding: 1rem 2rem;
+  color: #313131;
+  background: white;
+  border: 2px solid black;
+  margin-right: 2rem;
+  font-weight: 600;
+`;
 
-const Info= styled.div`
+const Info = styled.div`
+  margin-left: 2rem;
+`;
 
-margin-left:2rem;
-`
-export default Recipe
+export default Recipe;

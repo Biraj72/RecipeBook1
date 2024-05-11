@@ -92,3 +92,27 @@ a{
   margin-right: 10px;
 }
 
+.footer{
+  background-color: #0f0f0f;
+  color: #fff;
+  padding-block: 3em;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  text-align: left;
+  grid-gap: 1em;
+  
+
+  .footer-section{
+    p{
+      opacity: .9;
+      margin-bottom: .5em;
+      margin-left:10px;
+    }
+    p.title{
+      opacity: 1;
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+  }
+
+}
