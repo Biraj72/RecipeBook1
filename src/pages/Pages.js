@@ -5,6 +5,7 @@ import Searched from './Searched'
 import Recipe from './Recipe'
 import { Route,Routes } from 'react-router-dom'
 
+
 function Pages() {
   return (
     

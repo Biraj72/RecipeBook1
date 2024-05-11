@@ -1,31 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '@mui/material'
+import ImageUpload from './ImageUpload';
+
 function Form()
 {
+
+  const [title, setTitle] = useState('');
+  const [name, setName] = useState('')
+  const [steps, setSteps] = useState('')
+  const [ingredients, setIngredients] = useState('')
+  const [category, setCategory] = useState('Chinese')
+
   return (
     <div className='create'>
         <h2>Submit A Recipe</h2>
     <form>
         <label>Recipe Title</label>
-        <input type='text' required/>
+        <input type='text' required
+        value={title} onChange={(e) =>setTitle(e.target.value)}/>
 
         <label>Your Name</label>
-        <input type='text'/>
+        <input type='text' value={name} onChange={(e) =>setName(e.target.value)}/>
 
         <label>Ingredients</label>
-        <textarea></textarea>
+        <textarea value={ingredients} onChange={(e) =>setIngredients(e.target.value)}></textarea>
 
         <label>Steps:</label>
-        <textarea></textarea>
+           <textarea value={steps} onChange={(e) =>setSteps(e.target.value)}></textarea>
+            <div className='red'>
+              <input type='radio' name="type" id="veg" className='blue'/>
+             <label htmlFor="veg">Veg</label>
+              <input type='radio' name="type" id="nonVeg" className='blue'/>
+              <label htmlFor="nonVeg">Non-veg</label>
+              <input type='radio' name="type" id="Dontknow" className='blue'/>
+              <label htmlFor="DontKnow">Dont Know</label>
+            </div>
 
-        <input type='radio' name="type"/>Veg
-        <input type='radio' name="type"/>Non-veg
-
-        <label>Recipe Thumbnail</label>
-        <input type='image' required/>
+        
+        <label>Recipe Thumbnail:</label>
+        <ImageUpload/>
 
         <label>Category:</label>
-        <select aria-placeholder='Enter the food catgeory'>
+        <select placeholder='Enter the food catgeory' value={category} onChange={(e) =>setCategory(e.target.value)}>
             <option value='1'>Chinese</option>
             <option value='2'>Japanese</option>
             <option value='3'>American</option>

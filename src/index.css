@@ -55,7 +55,17 @@ a{
   margin-bottom: 30px;
 }
 
-.create input, .create textarea, .create select {
+.create textarea{
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  height: 10vh;
+}
+
+.create input, .create select {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
@@ -71,5 +81,14 @@ a{
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.red {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.blue {
+  margin-right: 10px;
 }
 

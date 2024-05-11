@@ -90,8 +90,8 @@ function Navbar() {
                 {item}
               </Button>
             ))}
-            <Button component={Link} to="/add/form" sx={{ color: '#fff', ml: 2 }} endIcon={<AiOutlinePlus />}>
-              Add
+            <Button component={Link} to="/add" sx={{ color: '#fff', ml: 2 }} endIcon={<AiOutlinePlus />}>
+
             </Button>
           </Box>
         </Toolbar>

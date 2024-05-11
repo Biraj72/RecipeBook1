@@ -4,22 +4,32 @@ import { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
+
 function Search() {
     const navigate= useNavigate();
     const [input, setInput] = useState("");
+    
+
 const submitHandler=(e) => {
     e.preventDefault();
     navigate("/searched/"+input)
 };
 
+
+
+    
+
   return (
     <FormStyle onSubmit={submitHandler}>
         <div>
-            <FaSearch></FaSearch>
+
         <input onChange={(e) => setInput(e.target.value)}
-        type="text" value={input}/>
+        type="text" value={input} placeholder='Search Food Items' />
+
+            <FaSearch/>
         
         </div>
+       
     </FormStyle>
   );
 }
@@ -51,6 +61,13 @@ svg{
     color:white;
 
 
-}`
+}`;
+
+const ComboBoxWrapper = styled.div`
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: calc(100% - 3.5rem);
+`;
 
 export default Search

@@ -11,18 +11,23 @@ import About from './pages/About';
 import Add from './pages/Add';
 
 function App() {
+
+  
+
   return (
     <div className="App">
       <BrowserRouter>
       <Navbar/>
+      <Search/>
+        <Category/>
+        
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/add" element={<Add />} />
+        
+      <Route path="/add" element={<Add />} />
+      <Route path="*" element={<Pages />} />
       </Routes>
-      <Search/>
-        <Category/>
-        <Pages/>
      </BrowserRouter>
     </div>
   );
