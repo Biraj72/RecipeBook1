@@ -1,6 +1,8 @@
 import React from 'react'
 import { AboutUsContainer,AboutCard,AboutContent,AboutDescription,PersonImage,Heading,Section,Image} from "../components/abut";
 import Imagee from '../Assets/logo.jpg'
+import Image1 from '../Assets/achyut.jpg'
+import Image2 from '../Assets/biraj.jpg'
  
 function About() {
   return (
@@ -26,16 +28,16 @@ Join our community today and start exploring the world of culinary delights with
   <AboutContent>
   
     <AboutCard>
-      <PersonImage src="/bg-image.jpg" alt="Person 1" />
+      <PersonImage src={Image2} alt="Person 1" />
       <p><strong>Biraj Maharjan</strong></p>
-      <p>Lalitpur,Kathmandu</p>
+      <p>Satdobato,Lalitpur</p>
       <p>+977-9999999999</p>
       <p>birajmaharjan@gmail.com</p>
     </AboutCard>
     <AboutCard>
-      <PersonImage src="/bg-image.jpg" alt="Person 2" />
+      <PersonImage src={Image1} alt="Person 2" />
       <p><strong>Achyut Gyawali</strong></p>
-      <p>Bhaktapur,Kathmandu</p>
+      <p>Pepsicola,Bhaktapur</p>
       <p>+977-9999999999</p>
       <p>achyutgyawali777@gmail.com</p>
     </AboutCard>

@@ -16,7 +16,7 @@ function Form()
         <h2>Submit A Recipe</h2>
     <form>
         <label>Recipe Title</label>
-        <input type='text' required
+        <input type='text' required 
         value={title} onChange={(e) =>setTitle(e.target.value)}/>
 
         <label>Your Name</label>

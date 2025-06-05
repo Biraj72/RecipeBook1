@@ -93,6 +93,7 @@ a{
 }
 
 .footer{
+  margin-top: 75px;
   background-color: #0f0f0f;
   color: #fff;
   padding-block: 3em;
